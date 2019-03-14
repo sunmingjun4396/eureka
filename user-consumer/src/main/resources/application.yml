@@ -1,0 +1,21 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: dm-user-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:7777/eureka
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+turbine:
+  cluster-name-expression: "'default'"
+  combine-host-port: true
+  app-config: dm-user-consumer,eureka-client
