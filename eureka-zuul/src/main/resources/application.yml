@@ -1,0 +1,14 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:7777/eureka
+server:
+  port: 7600
+spring:
+  application:
+    name: dm-eureka-zuul
+zuul:
+  routes:
+    consumer:
+      path: /user/**
+      serviceId: dm-user-consumer
